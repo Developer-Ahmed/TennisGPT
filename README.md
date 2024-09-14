@@ -6,6 +6,6 @@
 # Train your own TennisGPT
 Same steps above except when finetuning you can use a custom csv file with columns Question and Answer (case-sensitive).
 You don't need to include special tokens in the csv file, load_data handles that.
-# How to set config file?
+# How to set the config file?
 You can take a look at the example of pretraining above named config_example.py
    
