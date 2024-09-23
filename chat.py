@@ -53,7 +53,7 @@ def generate_answer(context):
 
 # chat loop
 print("-------------------")
-print("Chat with out model! Type q to quit.")
+print("Chat with our model! Type q to quit.")
 print("-------------------")
 while True:
     user_input = input("YOU: ")
