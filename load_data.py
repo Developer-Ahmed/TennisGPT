@@ -9,7 +9,7 @@ import torch
 from torch.utils.data.dataloader import DataLoader
 
 # initialize hyperparamaters
-from config_example import ConfigClass as config
+from config import ConfigClass as config
 
 # tokenizer from tiktoken
 # for models with bigger and more complex inputs, use newer tokenizers (such as gpt-4)
