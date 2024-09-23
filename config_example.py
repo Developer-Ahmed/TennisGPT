@@ -16,7 +16,7 @@ class ConfigClass:
     # where to save the model after pretraining
     pretrained_model_path: str = "./gpt_pretrained.pth"
     filter_size: int = 4 # used in mlp, 4 times the num_embed
-    dataset_name: str = "breadlicker45/youtube-comments-v2"
+    dataset_name: str = "openwebtext"
     # num_batches for loading into memmap
     loading_batches: int = 16
     compile: bool = True
