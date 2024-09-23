@@ -9,7 +9,7 @@ import torch
 from torch.utils.data.dataloader import DataLoader
 
 # initialize hyperparamaters
-from config import ConfigClass as config
+from config_example import ConfigClass as config
 
 # tokenizer from tiktoken
 # for models with bigger and more complex inputs, use newer tokenizers (such as gpt-4)
@@ -21,17 +21,16 @@ if not config.pretraining:
     special_tokens["<|user|>"] = 50259
     special_tokens["<|assistant|>"] = 50260
 
-# In production, load the arguments directly instead of accessing private attributes
-# See openai_public.py for examples of arguments for specific encodings
+from tiktoken_ext.openai_public import gpt2
+
+# Load the GPT-2 encoding with required parameters from openai_public.py
 tokenizer = tiktoken.Encoding(
-    # If you're changing the set of special tokens, make sure to use a different name
-    # It should be clear from the name what behaviour to expect.
-    name="gpt2_with_pad",
-    pat_str=gpt2_tokenizer._pat_str,
-    mergeable_ranks=gpt2_tokenizer._mergeable_ranks,
+    name="gpt2_with_pad",  # A custom name 
+    pat_str=gpt2()["pat_str"],  
+    mergeable_ranks=gpt2()["mergeable_ranks"],  
     special_tokens={
-        **gpt2_tokenizer._special_tokens,
-        **special_tokens,
+        **gpt2()["special_tokens"],  
+        **special_tokens,  # Additional special tokens
     }
 )
 
